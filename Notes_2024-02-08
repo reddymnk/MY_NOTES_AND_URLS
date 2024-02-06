@@ -1,0 +1,112 @@
+
+DevOps Lifecycle: Definition, Phases
+https://www.knowledgehut.com/blog/devops/devops-lifecycle#what-is-devops-lifecycle?%C2%A0
+
+Podman Tutorial - Basics for Beginners
+
+https://phoenixnap.com/kb/podman-tutorial
+
+Changes to the location of Linux packages for Kubernetes
+
+https://kubernetes.io/docs/setup/production-environment/container-runtimes/
+
+Unix / Linux - Pipes and Filters
+
+https://www.tutorialspoint.com/unix/unix-pipes-filters.htm
+
+Jenkins - Git Setup
+
+https://www.tutorialspoint.com/jenkins/jenkins_git_setup.htm
+
+Jenkins – Maven Setup
+https://www.tutorialspoint.com/jenkins/jenkins_maven_setup.htm
+
+Changes to the location of Linux packages for Kubernetes
+
+https://kubernetes.io/docs/concepts/workloads/controllers/job/
+
+Scale Up vs Scale Out
+
+https://portworx.com/blog/scale-up-vs-scale-out/
+
+Shell execution:
+
+
+https://www.tutorialspoint.com/execute_ksh_online.php
+
+
+Portainer, a GUI for Docker Management
+
+https://thenewstack.io/an-introduction-to-portainer-a-gui-for-docker-management/#:~:text=Portainer%20is%20a%20universal%20container,it's%20widely%20used%20and%20popular.
+
+
+Youtube on Kubernetes:
+
+https://www.youtube.com/watch?v=X48VuDVv0do
+
+https://www.youtube.com/watch?v=s_o8dwzRlu4
+
+How to find the rpm for a file or lib 
+https://www.thegeekdiary.com/how-to-find-which-rpm-package-provides-a-specific-file-or-library-in-rhel-centos/
+
+
+
+
+PG Links:
+
+https://github.com/gabrielf/maven-samples
+
+Docker Volumes:
+
+Create and manage volumes
+https://docs.docker.com/storage/volumes/
+
+Docker Networking
+
+https://www.aquasec.com/cloud-native-academy/docker-container/docker-networking/
+https://www.aquasec.com/cloud-native-academy/docker-container/docker-networking/#:~:text=Docker%20Default%20Networking%20(docker0),a%20custom%20network%20is%20specified.
+
+https://docs.docker.com/registry/
+
+
+Docker Use Cases: 15 most common ways to use Docker
+https://www.clickittech.com/devops/docker-use-cases/
+
+Compose file versions and upgrading:
+https://docs.docker.com/compose/compose-file/compose-versioning/
+
+Getting started with Swarm mode:
+
+https://docs.docker.com/engine/swarm/swarm-tutorial/
+
+
+Docker - Quiz(MCQ)
+https://www.freetimelearning.com/online-quiz/programming-languages-quiz.php?Which-of-the-following-statements-is-most-correct-in-Docker?&id=7498#google_vignette
+
+
+Dockerfile reference:
+
+https://docs.docker.com/engine/reference/builder/
+
+
+
+
+Prometheus:
+
+https://prometheus.io/docs/prometheus/latest/installation/
+
+https://prometheus.io/docs/prometheus/latest/installation/
+
+Working with Dockerfile:
+
+https://tecadmin.net/tutorial/docker/docker-dockerfile/
+
+
+Git project:
+
+https://github.com/salwad-basha-shaik/final-devops-project/tree/main/project_required_file_v1
+
+
+Git Command to allow unrelated history
+
+# git pull -v origin master --alow-unrelated-histories 
