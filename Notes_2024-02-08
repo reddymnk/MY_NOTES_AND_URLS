@@ -110,3 +110,9 @@ https://github.com/salwad-basha-shaik/final-devops-project/tree/main/project_req
 Git Command to allow unrelated history
 
 # git pull -v origin master --alow-unrelated-histories 
+
+
+Ansible:
+
+
+https://docs.ansible.com/ansible/2.8/modules/list_of_packaging_modules.html#
