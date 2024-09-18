@@ -1,0 +1,26 @@
+---
+- name: Sample playbook to separate failed hosts
+  hosts: all
+  become: yes
+  tasks:
+    - name: Task that might fail
+      shell: "exit 1"  # Simulate failure
+      ignore_errors: yes  # Continue even if the task fails
+
+- name: Gather and display failed hosts
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Check failed hosts
+      set_fact:
+        failed_hosts: "{{ groups['all'] | select('search', 'failed') | list }}"
+
+    - name: Show list of failed hosts
+      debug:
+        msg: "Failed hosts: {{ failed_hosts }}"
+
+    - name: Save failed hosts to a file
+      copy:
+        content: "{{ failed_hosts | join('\n') }}"
+        dest: /tmp/failed_hosts.txt
+      when: failed_hosts | length > 0
