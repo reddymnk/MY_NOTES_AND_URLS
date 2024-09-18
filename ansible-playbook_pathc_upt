@@ -1,0 +1,24 @@
+---
+- name: Apply updates for specific CVEs on RHEL 8
+  hosts: all
+  become: yes
+  vars_prompt:
+          - name: cve_list
+            prompt: Enter the list of CVES
+            private: no
+            convert_to: list
+
+  tasks:
+    - name: Ensure CVEs are provided as input
+      fail:
+        msg: "No CVEs were provided. Please specify a list of CVE IDs."
+      when: cve_list | length == 0
+    - name: Show the CVE list
+      debug:
+        msg: "{{ cve_list }}"
+
+    - name: Update packages related to specific CVEs
+      yum:
+        cve: "{{ item }}"
+        state: latest
+      loop: "{{ cve_list }}"
