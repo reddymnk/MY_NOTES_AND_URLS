@@ -1,0 +1,37 @@
+---
+- name: Sample playbook to test task execution
+  hosts: all
+  become: yes
+  tasks:
+    - name: Task that might fail
+      shell: "exit 1"  # Simulate task failure
+      ignore_errors: yes  # Continue even if task fails
+
+- name: Collect failed and unreachable hosts
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Collect failed hosts
+      set_fact:
+        failed_hosts: "{{ groups['all'] | select('failed') | list }}"
+        unreachable_hosts: "{{ groups['all'] | select('unreachable') | list }}"
+
+    - name: Display failed hosts
+      debug:
+        msg: "Failed hosts: {{ failed_hosts }}"
+
+    - name: Display unreachable hosts
+      debug:
+        msg: "Unreachable hosts: {{ unreachable_hosts }}"
+
+    - name: Save failed hosts to a file
+      copy:
+        content: "{{ failed_hosts | join('\n') }}"
+        dest: /tmp/failed_hosts.txt
+      when: failed_hosts | length > 0
+
+    - name: Save unreachable hosts to a file
+      copy:
+        content: "{{ unreachable_hosts | join('\n') }}"
+        dest: /tmp/unreachable_hosts.txt
+      when: unreachable_hosts | length > 0
