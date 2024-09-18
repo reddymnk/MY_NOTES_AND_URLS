@@ -4,7 +4,7 @@
   become: yes
   vars_prompt:
           - name: cve_list
-            prompt: Enter the list of CVES
+            prompt: Enter the list of CVES with comma separated 
             private: no
             convert_to: list
 
