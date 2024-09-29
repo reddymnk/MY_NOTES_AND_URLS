@@ -1,7 +1,8 @@
 ansible-playbook playbook.yml --extra-vars "hosts=localhost" -v --forks=1 --output-file output.json
 
+python convert_ansible_to_html.py
 
-  Python Code to convert the asible-playbook output. 
+Python Code to convert the asible-playbook output. 
 ====================
   
 
