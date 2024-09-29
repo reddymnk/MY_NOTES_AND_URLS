@@ -1,0 +1,125 @@
+To convert the output of an Ansible playbook to an HTML webpage, you can capture the output in JSON format and then use Python to process that JSON data and generate HTML. Here's a step-by-step approach with Python code for converting the Ansible output to HTML:
+
+Steps:
+Run Ansible Playbook with JSON Output: To capture the Ansible output in a machine-readable format, run the playbook with the --json callback plugin.
+
+You can run the Ansible playbook with the following command:
+
+bash
+Copy code
+ansible-playbook playbook.yml --extra-vars "hosts=localhost" -v --forks=1 --output-file output.json
+Python Code to Convert JSON Output to HTML:
+
+The Python code will read the JSON output from the Ansible playbook and convert it into an HTML webpage.
+
+Python Code:
+python
+Copy code
+import json
+from datetime import datetime
+
+def read_ansible_output(json_file):
+    """Read Ansible playbook JSON output from a file."""
+    with open(json_file, 'r') as f:
+        return json.load(f)
+
+def generate_html_report(data, output_file):
+    """Generate an HTML file from Ansible JSON output."""
+    html_content = """
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ansible Playbook Report</title>
+        <style>
+            body { font-family: Arial, sans-serif; }
+            table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+            table, th, td { border: 1px solid black; }
+            th, td { padding: 10px; text-align: left; }
+            th { background-color: #f2f2f2; }
+            .success { background-color: #d4edda; }
+            .failed { background-color: #f8d7da; }
+        </style>
+    </head>
+    <body>
+        <h1>Ansible Playbook Report</h1>
+        <p>Generated on: {generated_time}</p>
+        <table>
+            <thead>
+                <tr>
+                    <th>Host</th>
+                    <th>Task</th>
+                    <th>Status</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+    """
+
+    # Parse the Ansible JSON output
+    for play in data['plays']:
+        for task in play['tasks']:
+            for host, result in task['hosts'].items():
+                status_class = "success" if result['failed'] == False else "failed"
+                task_duration = result.get('duration', {}).get('end', 'N/A')
+                
+                html_content += f"""
+                <tr class="{status_class}">
+                    <td>{host}</td>
+                    <td>{task['task']['name']}</td>
+                    <td>{'OK' if result['failed'] == False else 'Failed'}</td>
+                    <td>{task_duration}</td>
+                </tr>
+                """
+
+    html_content += """
+            </tbody>
+        </table>
+    </body>
+    </html>
+    """
+
+    # Add generation timestamp
+    html_content = html_content.format(generated_time=datetime.now().strftime("%Y-%m-%d %H:%M:%S"))
+
+    # Write the HTML content to the output file
+    with open(output_file, 'w') as f:
+        f.write(html_content)
+
+    print(f"HTML report generated: {output_file}")
+
+if __name__ == "__main__":
+    # Path to Ansible JSON output file
+    ansible_json_file = 'output.json'
+    
+    # Path to the HTML report file
+    html_output_file = 'ansible_report.html'
+    
+    # Read Ansible output
+    ansible_data = read_ansible_output(ansible_json_file)
+    
+    # Generate HTML report
+    generate_html_report(ansible_data, html_output_file)
+Explanation of Code:
+read_ansible_output(): This function reads the JSON output from the Ansible playbook.
+generate_html_report(): This function generates an HTML file from the JSON data. It creates a table in the HTML file, where each row corresponds to a task run on a host, and includes task status (success/failure) and duration.
+HTML Styling: The HTML is styled using basic CSS to highlight successes and failures in green and red, respectively.
+Main Code Block: Reads the JSON data from the output file (output.json) and converts it into an HTML report (ansible_report.html).
+Run the Code:
+Run Ansible Playbook: Ensure you capture the playbook output in a JSON format as shown earlier.
+
+Run the Python Script: Run the Python script to convert the output:
+
+bash
+Copy code
+python convert_ansible_to_html.py
+This will generate an HTML report (ansible_report.html) that you can open in any browser to view the Ansible playbook results.
+
+Result:
+The final HTML report will have:
+
+A table with rows for each host and task.
+Status indicators for whether each task succeeded or failed.
+Any additional information, like task duration.
+This is a simple way to convert Ansible playbook output to a readable HTML format for weekly reports or sharing.
