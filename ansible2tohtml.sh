@@ -1,3 +1,10 @@
+commands to run the script 
+
+ssh user@aixhost 'ls -lrt /web/htdocs | tail -12' | ./ansi2html.sh --bg=dark >test.html
+
+
+Belos the scipt 
+-----------------
 #!/bin/sh
 
 # Convert ANSI (terminal) colours and attributes to HTML
