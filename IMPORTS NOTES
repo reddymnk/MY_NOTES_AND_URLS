@@ -1,0 +1,3 @@
+VNC server Initiation
+
+vncserver -geometry 1400x900 -BlacklistTimeout 0 -BlacklistThreshold 1000000
