@@ -5,3 +5,11 @@ vncserver -geometry 1400x900 -BlacklistTimeout 0 -BlacklistThreshold 1000000
 How to Generate CSR with 4096 and Multi-Domain
 
 openssl req -newkey rsa:4096 -nodes -days 365 -keyout  ./fr4p-gen-dcb-app003_fr4_syniverse_com.key  -out .//fr4p-gen-dcb-app003_fr4_syniverse_com.csr -subj "/C=US/ST=Florida/L=Tampa/O=Syniverse Technologies/CN=fr4p-gen-dcb-app003.fr4.syniverse.com/emailAddress=insightops@syniverse.com" -addext "subjectAltName = DNS:fr4p-gen-dcb-app004.fr4.syniverse.com insight-intelligence-eu1.syniverse.com insight-intelligence-eu2.syniverse.com insight-intelligence-euv1.syniverse.com insight-intelligence-eu1-local.syniverse.com insight-intelligence-eu2-local.syniverse.com insight-intelligence-euv1-local.syniverse.com"
+
+
+
+Basically there are two CER certificate encoding types, DER and Base64. When type DER returns an error loading certificate (asn1 encoding routines), try the PEM and it shall work.
+
+openssl x509 -inform DER -in certificate.cer -out certificate.crt
+
+openssl x509 -inform PEM -in certificate.cer -out certificate.crt
