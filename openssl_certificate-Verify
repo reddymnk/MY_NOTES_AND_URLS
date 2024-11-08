@@ -1,0 +1,49 @@
+ 1103  11/06/24 07:14:27 openssl x509 verify -in ucs_prd_ui-nov2024.key -noout
+ 1104  11/06/24 07:14:37 openssl x509 verify -help
+ 1105  11/06/24 07:14:43 openssl x509 -help
+ 1106  11/06/24 07:18:55 openssl pkcs12 -export -in ucs-prd-ui_syniverse_com.crt -inkey ucs_prd_ui-nov2024.key -name prod-uc-ssl -out prod-uc-ssl-keystore.p12
+ 1107  11/06/24 07:19:28 openssl x509 -in ucs-prd-ui_syniverse_com.crt -text -noout
+ 1108  11/06/24 07:20:26 ls -lrt
+ 1109  11/06/24 07:20:37 openssl x509 -in ucs_prd_ui-nov2024.key -text -noout
+ 1110  11/06/24 07:20:50 openssl req -in ucs_prd_ui-nov2024.key -text -noout
+ 1111  11/06/24 07:21:52 openssl rsa -noout -in ucs_prd_ui-nov2024.key | openssl md5
+ 1112  11/06/24 07:22:25 openssl req -noout -modules -in ucs-prd-ui_syniverse_com.crt | openssl md5
+ 1113  11/06/24 07:22:39 openssl req -noout -modulus -in ucs-prd-ui_syniverse_com.crt | openssl md5
+ 1114  11/06/24 07:22:55 openssl req -noout  -in ucs-prd-ui_syniverse_com.crt | openssl md5
+ 1115  11/06/24 07:23:09 openssl req -noout  -in ucs_prd_ui-nov2024.csr | openssl md5
+ 1116  11/06/24 07:23:24 openssl req -noout  -in ucs_prd_ui-nov2024.key | openssl md5
+ 1117  11/06/24 07:23:33 openssl rsa -noout  -in ucs_prd_ui-nov2024.key | openssl md5
+ 1118  11/06/24 07:24:17 ls -lrt
+ 1119  11/06/24 08:24:05 cd /app/SSLNEW/
+ 1120  11/06/24 08:25:27 locat ucs-ssl-prod-keystore.jks
+ 1121  11/06/24 08:25:41 cd /app/SSL
+ 1122  11/06/24 08:25:43 ls -lrt
+ 1123  11/06/24 08:28:28 cd -
+ 1124  11/06/24 08:28:30 ls -lrt
+ 1125  11/06/24 08:29:54 openssl pkcs7 -in ucs-prd-ui_syniverse_com.crt  -print_certs -out ucs-prd-ui_syniverse_com.pem
+ 1126  11/06/24 08:30:05 ls -lrt
+ 1127  11/06/24 08:35:27 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs_prd_ui-nov2024.key -in ucs-prd-ui_syniverse_com.crt -certifile ucs-prd-ui_syniverse_com.crt
+ 1128  11/06/24 08:36:01 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs_prd_ui-nov2024.key -in ucs-prd-ui_syniverse_com.crt -certifile ucs-prd.crt
+ 1129  11/06/24 08:36:11 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs_prd_ui-nov2024.key -in ucs-prd-ui_syniverse_com.crt
+ 1130  11/06/24 08:37:24 cat ucs-prd-ui_syniverse_com.crt ucs_prd_ui-nov2024.key > ucs-prd-ui_syniverse_com.pem
+ 1131  11/06/24 08:37:28 cat ucs-prd-ui_syniverse_com.pem
+ 1132  11/06/24 08:39:26 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs_prd_ui-nov2024.pem -in ucs-prd-ui_syniverse_com.pem
+ 1133  11/06/24 08:39:45 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs-prd-ui_syniverse_com.pem -in ucs-prd-ui_syniverse_com.pem
+ 1134  11/06/24 08:40:29 openssl x509 -noout -modulus -in ucs_prd_ui-nov2024.key | openssl md5
+ 1135  11/06/24 08:40:53 openssl rsa -noout -modulus -in ucs-prd-ui_syniverse_com.crt | openssl md5
+ 1136  11/06/24 08:41:29 openssl rsa:4096 -noout -modulus -in ucs-prd-ui_syniverse_com.crt | openssl md5
+ 1137  11/06/24 08:41:33 openssl rsa -noout -modulus -in ucs-prd-ui_syniverse_com.crt | openssl md5
+ 1138  11/06/24 08:46:44 ls -lrt
+ 1139  11/06/24 08:46:59 rm -rf ucs-prd-ui_syniverse_com.pem
+ 1140  11/06/24 08:47:10 clear
+ 1141  11/06/24 08:47:12 ls -lrt
+ 1142  11/06/24 08:47:58 openssl rsa -in ucs_prd_ui-nov2024.key  -text > ucs_prd_ui-nov2024.pem
+ 1143  11/06/24 08:50:25 openssl x509 -inform PEM -in ucs-prd-ui_syniverse_com.crt > ucs-prd-ui_syniverse_com.pem
+ 1144  11/06/24 08:50:28 ls -lrt
+ 1145  11/06/24 08:50:57 chmod 775 ucs_prd_ui-nov2024.pem ucs-prd-ui_syniverse_com.pem
+ 1146  11/06/24 08:51:08 ls -lrt
+ 1147  11/06/24 08:53:21 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs_prd_ui-nov2024.pem -in ucs-prd-ui_syniverse_com.pem
+ 1148  11/06/24 08:56:47 openssl pkcs12 -export -out ucs-prd-ui_syniverse_com.p12 -inkey ucs_prd_ui-nov2024.pem -in ucs-prd-ui_syniverse_com.pem -passin pass:root -passout pass:root
+ 1149  11/06/24 09:04:11 openssl rsa -noout -modulus -in ucs_prd_ui-nov2024.key | openssl md5
+ 1150  11/06/24 09:04:46 openssl req -noout -modulus -in ucs_prd_ui-nov2024.csr | openssl md5
+ 1151  11/06/24 09:05:10 openssl x509 -noout -modulus -in ucs-prd-ui_syniverse_com.crt | openssl md5
