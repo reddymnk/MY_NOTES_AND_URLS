@@ -1,0 +1,17 @@
+ nmcli connection reload
+  917  nmcli connection show
+  918  nmcli connection add type bond con-name 'Bond Bond2' ifname bond2 bond.options "mode=4,miimon=100" ipv4.method disabled ipv6.method ignore
+  919  ip a
+  920  ping 10.161.120.1
+  921  nmcli connection show
+  922  nmcli connection reload
+  923  nmcli connection show
+  924  ping 10.161.120.1
+  925  nmcli connection edit 'Bond Bond2'
+  926  ip a
+  927  ping 10.161.120.1
+  928  nmcli connection reload
+  929  ping 10.161.120.1
+  930  nmcli connection add type bond con-name 'Bond Bond2' ifname bond2 bond.options "mode=4,miimon=100" ipv4.method disabled ipv6.method ignore
+  931  ping 10.161.120.1
+  932  nmcli connection reload
